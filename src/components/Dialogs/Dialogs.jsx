@@ -1,63 +1,46 @@
 import React from "react";
 import s from './Dialogs.module.css';
-import {NavLink} from "react-router-dom";
+import DialogItem from "./DialogItem/DialogItem";
+import Message from "./Message/Message";
+import { sendMessageCreator, updateNewMessageBodyCreator } from "../../redux/state";
 
-const DialogItem = (props) => {
+const Dialogs = (props) => {
 
-    let path = "/dialogs/" + props.id;
+    let state = props.store.getState().messagesPage;
 
-    return (
-    <div className={s.dialog + ' ' + s.active}>
-        <NavLink to={path}>{props.name}</NavLink>
-    </div>
-    )
-}
+    let messagesElements = state.messages.map(
+        (message) => { return (<Message message={message.message} />); }
+    );
 
-const Message = (props) => {
-    return(
-        <div className={s.message}>
-            {props.message}
-        </div>
-    )
-}
+    let dialogsElements = state.dialogs.map(
+        (dialog) => { return (<DialogItem name={dialog.name} id={dialog.id} />); }
+    );
 
+    let newMessageBody = state.newMessageBody;
 
+    let onNewMessageChange = (event) => {
+        let body = event.target.value;
+        props.store.dispatch(updateNewMessageBodyCreator(body)); 
+    }
 
-const Dialogs = () => {
+    let onSendMessageClick = () => {
+        props.store.dispatch(sendMessageCreator());
+    }
 
-    let dialogsData = [
-        {id: 1, name: 'Uriy Michurin'}, 
-        {id: 2, name: 'Dmitry Mazanov'},
-        {id: 3, name: 'Pavel Kostyrev'}
-    ]
-
-    let messagesData = [
-        {id: 1, message: 'Firts message'}, 
-        {id: 2, message: 'Very very very long long long second second second message message message'},
-        {id: 3, message: 'Third message'}
-    ]
-
-    let messagesElements = messagesData.map(
-        (message) => 
-        {return(<Message message={message.message} />);}
-        );
-
-    let dialogsElements = dialogsData.map(
-        (dialog) => 
-        {return(<DialogItem name={dialog.name} id={dialog.id}/>);}
-        );
-    
-        
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
                 {dialogsElements}
             </div>
             <div className={s.messages}>
-                {messagesElements}
+                <div>{messagesElements}</div>
+                <div>
+                    <div><textarea placeholder='New message...' value={newMessageBody} onChange={onNewMessageChange}></textarea></div>
+                    <div><button onClick={onSendMessageClick}>Send</button></div>
+                </div>
             </div>
         </div>
     )
 }
 
-export default Dialogs;
+export default Dialogs; 

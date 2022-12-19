@@ -17,14 +17,6 @@
     border-bottom: 2px solid #eff0f9;
 }
 
-.messages {
-    padding: 22px;  
-}
-
 .dialog.active {
     background-color: #EDF3FC;
-}
-
-.messages .message {
-
 }
