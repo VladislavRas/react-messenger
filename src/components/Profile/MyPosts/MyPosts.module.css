@@ -1,0 +1,42 @@
+.newPostBlock button {
+    font-family: 'Inter', sans-serif;
+    padding: 22px;
+    height: 64px;
+    border-radius: 12px;
+    border: 0;
+    color: #FFF;
+    background-color: #007BFF;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.newPostBlock textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #FFF;
+    border: 2px solid #eff0f9;
+    border-radius: 12px;
+    padding: 22px;
+    outline: 0;
+    height: 64px;
+    width: 488px;
+    line-height: 17px;
+    word-wrap: break-word;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    resize: none;
+    float: none;
+    overflow: hidden;
+}
+
+
+.newPostBlock {
+    display: flex;
+    width: 60%;
+}

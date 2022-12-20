@@ -1,4 +1,4 @@
-.dialogs {  
+.dialogs {
     display: grid;
     grid-template-columns: 3fr 8fr;
     border: 2px solid #EFF0F9;
@@ -18,13 +18,64 @@
 }
 
 .messages {
-    padding: 22px;  
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
 }
 
 .dialog.active {
     background-color: #EDF3FC;
 }
 
-.messages .message {
+.newMessageBlock {
+    border-top: 2px solid #EFF0F9;
+    display: flex;
+    width: 100%;
+    padding: 22px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    background-color: #F4F5FA;
+    box-sizing: border-box;
+}
 
+.messagesElements {
+    padding: 22px;
+    max-height: 70vh;
+}
+
+.newMessageBlock textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #FFF;
+    border: 2px solid #eff0f9;
+    border-radius: 12px;
+    padding: 22px;  
+    outline: 0;
+    height: 64px;
+    width: 605px;
+    line-height: 17px;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    border: 0;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    resize: none;
+    float: none;
+
+}
+
+.newMessageBlock button {
+    font-family: 'Inter', sans-serif;
+    padding: 22px;
+    height: 64px;
+    border-radius: 12px;
+    border: 0;
+    color: #FFF;
+    background-color: #007BFF;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
